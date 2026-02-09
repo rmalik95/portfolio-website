@@ -66,7 +66,7 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#CCD6F6] mb-4">
             Let's Build Something Together
           </h2>
-          <p className="text-[#8892B0] max-w-2xl mx-auto">
+          <p className="text-[#B8C5D9] max-w-2xl mx-auto">
             Whether you're looking for a Data Scientist, ML Engineer, or Cloud Architect—or just want to discuss data science and tech—I'd love to connect.
           </p>
         </div>
@@ -199,24 +199,24 @@ const Contact = () => {
               {/* Email */}
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-4 text-[#8892B0] hover:text-[#64FFDA] transition-colors group"
+                className="flex items-center gap-4 text-[#B8C5D9] hover:text-[#64FFDA] transition-colors group"
               >
                 <div className="w-10 h-10 flex items-center justify-center bg-[#0A192F] rounded-lg border border-[#233554] group-hover:border-[#64FFDA] transition-colors">
                   <Mail size={18} className="text-[#64FFDA]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#8892B0]">Email</p>
+                  <p className="text-xs text-[#B8C5D9]">Email</p>
                   <p className="text-sm text-[#CCD6F6] group-hover:text-[#64FFDA]">{personalInfo.email}</p>
                 </div>
               </a>
 
               {/* Location */}
-              <div className="flex items-center gap-4 text-[#8892B0]">
+              <div className="flex items-center gap-4 text-[#B8C5D9]">
                 <div className="w-10 h-10 flex items-center justify-center bg-[#0A192F] rounded-lg border border-[#233554]">
                   <MapPin size={18} className="text-[#64FFDA]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#8892B0]">Location</p>
+                  <p className="text-xs text-[#B8C5D9]">Location</p>
                   <p className="text-sm text-[#CCD6F6]">{personalInfo.location}</p>
                 </div>
               </div>
