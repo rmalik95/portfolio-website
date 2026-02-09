@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const RESUME_URL = `${BACKEND_URL}/api/resume/download`;
+
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
