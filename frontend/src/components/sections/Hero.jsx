@@ -3,6 +3,9 @@ import { ChevronDown, Download, FolderOpen } from 'lucide-react';
 import { Button } from '../ui/button';
 import { personalInfo, stats } from '../../data/mock';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const RESUME_URL = `${BACKEND_URL}/api/resume/download`;
+
 const Hero = () => {
   const [particles, setParticles] = useState([]);
 
