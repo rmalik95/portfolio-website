@@ -52,7 +52,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0A192F]/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-[#FFFBF5]/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,9 +60,9 @@ const Navigation = () => {
           {/* Logo/Name */}
           <button
             onClick={() => scrollToSection('home')}
-            className="font-mono text-[#64FFDA] text-lg md:text-xl font-semibold hover:opacity-80 transition-opacity"
+            className="font-display text-[#C2591A] text-xl md:text-2xl font-semibold hover:opacity-80 transition-opacity"
           >
-            &lt;RM /&gt;
+            RM
           </button>
 
           {/* Desktop Navigation */}
@@ -71,16 +71,16 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#64FFDA] inline-flex items-center gap-1 ${
-                  activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#B8C5D9]'
+                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#C2591A] inline-flex items-center gap-1 ${
+                  activeSection === item.id ? 'text-[#C2591A]' : 'text-[#6B5B4F]'
                 }`}
               >
-                <span className="font-mono text-[#64FFDA] text-xs">
+                <span className="text-[#C2591A] text-xs font-mono">
                   0{index + 1}.
                 </span>
                 <span>{item.label}</span>
                 {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#64FFDA]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C2591A]" />
                 )}
               </button>
             ))}
@@ -88,7 +88,7 @@ const Navigation = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-medium text-[#64FFDA] border border-[#64FFDA] rounded hover:bg-[#64FFDA]/10 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-[#FFFBF5] bg-[#C2591A] rounded hover:bg-[#A34815] transition-colors"
             >
               Resume
             </a>
@@ -97,7 +97,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-[#64FFDA] hover:bg-[#233554] rounded-lg transition-colors"
+            className="md:hidden p-2 text-[#C2591A] hover:bg-[#F5F0E8] rounded-lg transition-colors"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -111,28 +111,28 @@ const Navigation = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="absolute inset-0 bg-[#0A192F]/95 backdrop-blur-md" onClick={() => setIsMenuOpen(false)} />
-        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-[#112240] shadow-2xl">
+        <div className="absolute inset-0 bg-[#3D2914]/20 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
+        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-[#FFFBF5] shadow-2xl">
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-lg font-medium transition-colors hover:text-[#64FFDA] ${
-                  activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#CCD6F6]'
+                className={`text-lg font-medium transition-colors hover:text-[#C2591A] ${
+                  activeSection === item.id ? 'text-[#C2591A]' : 'text-[#3D2914]'
                 }`}
               >
-                <span className="font-mono text-[#64FFDA] text-sm mr-2">
+                <span className="font-mono text-[#C2591A] text-sm mr-2">
                   0{index + 1}.
                 </span>
-                <span>{item.label}</span>
+                {item.label}
               </button>
             ))}
             <a
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-8 py-3 text-[#64FFDA] border border-[#64FFDA] rounded hover:bg-[#64FFDA]/10 transition-colors"
+              className="mt-4 px-8 py-3 text-[#FFFBF5] bg-[#C2591A] rounded hover:bg-[#A34815] transition-colors"
             >
               Resume
             </a>
