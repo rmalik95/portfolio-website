@@ -8,17 +8,15 @@ const ExperienceCard = ({ experience }) => {
   return (
     <div className="relative">
       {/* Company Header */}
-      <div className="flex items-start gap-4 mb-8">
-        <div className="w-12 h-12 flex items-center justify-center bg-[#112240] rounded-lg border border-[#233554] text-2xl">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-14 h-14 flex items-center justify-center bg-[#112240] rounded-lg border border-[#233554] text-2xl flex-shrink-0">
           {experience.logo}
         </div>
-        <div className="pt-2">
-          <h3 className="text-xl font-semibold text-[#CCD6F6]">{experience.company}</h3>
-        </div>
+        <h3 className="text-xl font-semibold text-[#CCD6F6]">{experience.company}</h3>
       </div>
 
       {/* Roles */}
-      <div className="space-y-5 ml-4 pl-8 border-l-2 border-[#233554]">
+      <div className="space-y-4 ml-7 pl-7 border-l-2 border-[#233554]">
         {experience.roles.map((role, roleIndex) => (
           <div
             key={roleIndex}
@@ -28,7 +26,7 @@ const ExperienceCard = ({ experience }) => {
           >
             {/* Timeline Dot */}
             <div
-              className={`absolute left-[-38px] top-6 w-4 h-4 rounded-full border-2 ${
+              className={`absolute left-[-35px] top-6 w-3 h-3 rounded-full border-2 ${
                 role.current
                   ? 'bg-[#64FFDA] border-[#64FFDA]'
                   : 'bg-[#0A192F] border-[#495670]'
