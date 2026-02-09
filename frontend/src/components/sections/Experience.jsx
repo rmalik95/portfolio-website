@@ -117,7 +117,7 @@ const Experience = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="space-y-12">
+        <div className="space-y-16">
           {experiences.map((experience) => (
             <ExperienceCard key={experience.id} experience={experience} />
           ))}
