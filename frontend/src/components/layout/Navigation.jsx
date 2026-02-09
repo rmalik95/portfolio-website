@@ -69,12 +69,13 @@ const Navigation = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`relative py-2 text-sm font-medium transition-colors hover:text-[#64FFDA] ${
-                  activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#8892B0]'
+                  activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#B8C5D9]'
                 }`}
               >
-                <span className="font-mono text-[#64FFDA] text-xs mr-2">
+                <span className="font-mono text-[#64FFDA] text-xs">
                   0{index + 1}.
                 </span>
+                {' '}
                 <span>{item.label}</span>
                 {activeSection === item.id && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#64FFDA]" />
