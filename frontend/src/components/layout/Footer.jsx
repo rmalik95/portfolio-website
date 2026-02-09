@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0A192F] border-t border-[#233554] py-12">
+    <footer className="bg-[#0C1929] border-t border-[#132F4C] py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-6">
           {/* Social Links */}
@@ -17,7 +17,7 @@ const Footer = () => {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B4D4F7] hover:text-[#00D4FF] transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={22} />
@@ -26,14 +26,14 @@ const Footer = () => {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B4D4F7] hover:text-[#00D4FF] transition-colors"
               aria-label="GitHub"
             >
               <Github size={22} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B4D4F7] hover:text-[#00D4FF] transition-colors"
               aria-label="Email"
             >
               <Mail size={22} />
@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 text-[#B8C5D9] hover:text-[#64FFDA] transition-colors text-sm"
+            className="flex items-center space-x-2 text-[#B4D4F7] hover:text-[#00D4FF] transition-colors text-sm"
           >
             <ArrowUp size={16} />
             <span>Back to Top</span>
@@ -51,10 +51,10 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center space-y-2">
-            <p className="font-mono text-[#B8C5D9] text-xs">
+            <p className="font-mono text-[#B4D4F7] text-xs">
               Built with React & Tailwind CSS
             </p>
-            <p className="text-[#8892B0] text-sm">
+            <p className="text-[#66B2FF] text-sm">
               © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
             </p>
           </div>

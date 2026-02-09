@@ -52,7 +52,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#FFFBF5]/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-[#0C1929]/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ const Navigation = () => {
           {/* Logo/Name */}
           <button
             onClick={() => scrollToSection('home')}
-            className="font-display text-[#C2591A] text-xl md:text-2xl font-semibold hover:opacity-80 transition-opacity"
+            className="font-display text-[#00D4FF] text-xl md:text-2xl font-semibold hover:opacity-80 transition-opacity"
           >
             RM
           </button>
@@ -71,16 +71,16 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#C2591A] inline-flex items-center gap-1 ${
-                  activeSection === item.id ? 'text-[#C2591A]' : 'text-[#6B5B4F]'
+                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#00D4FF] inline-flex items-center gap-1 ${
+                  activeSection === item.id ? 'text-[#00D4FF]' : 'text-[#66B2FF]'
                 }`}
               >
-                <span className="text-[#C2591A] text-xs font-mono">
+                <span className="text-[#00D4FF] text-xs font-mono">
                   0{index + 1}.
                 </span>
                 <span>{item.label}</span>
                 {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C2591A]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00D4FF]" />
                 )}
               </button>
             ))}
@@ -88,7 +88,7 @@ const Navigation = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-medium text-[#FFFBF5] bg-[#C2591A] rounded hover:bg-[#A34815] transition-colors"
+              className="px-4 py-2 text-sm font-medium text-[#0C1929] bg-[#00D4FF] rounded hover:bg-[#66B2FF] transition-colors"
             >
               Resume
             </a>
@@ -97,7 +97,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-[#C2591A] hover:bg-[#F5F0E8] rounded-lg transition-colors"
+            className="md:hidden p-2 text-[#00D4FF] hover:bg-[#132F4C] rounded-lg transition-colors"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -111,18 +111,18 @@ const Navigation = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="absolute inset-0 bg-[#3D2914]/20 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
-        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-[#FFFBF5] shadow-2xl">
+        <div className="absolute inset-0 bg-[#0C1929]/80 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
+        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-[#132F4C] shadow-2xl">
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-lg font-medium transition-colors hover:text-[#C2591A] ${
-                  activeSection === item.id ? 'text-[#C2591A]' : 'text-[#3D2914]'
+                className={`text-lg font-medium transition-colors hover:text-[#00D4FF] ${
+                  activeSection === item.id ? 'text-[#00D4FF]' : 'text-[#B4D4F7]'
                 }`}
               >
-                <span className="font-mono text-[#C2591A] text-sm mr-2">
+                <span className="font-mono text-[#00D4FF] text-sm mr-2">
                   0{index + 1}.
                 </span>
                 {item.label}
@@ -132,7 +132,7 @@ const Navigation = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-8 py-3 text-[#FFFBF5] bg-[#C2591A] rounded hover:bg-[#A34815] transition-colors"
+              className="mt-4 px-8 py-3 text-[#0C1929] bg-[#00D4FF] rounded hover:bg-[#66B2FF] transition-colors"
             >
               Resume
             </a>

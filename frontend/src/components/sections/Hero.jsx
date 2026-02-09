@@ -73,16 +73,16 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <p className="font-mono text-[#64FFDA] text-sm md:text-base mb-4 animate-fade-in">
+            <p className="font-mono text-[#00D4FF] text-sm md:text-base mb-4 animate-fade-in">
               Hi, my name is
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#CCD6F6] mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#B4D4F7] mb-4">
               {personalInfo.name}
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#A8B2D1] mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#66B2FF] mb-6">
               {personalInfo.title}
             </h2>
-            <p className="text-[#B8C5D9] text-base md:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <p className="text-[#B4D4F7] text-base md:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
               {personalInfo.tagline}
             </p>
 
@@ -90,14 +90,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Button
                 onClick={scrollToProjects}
-                className="bg-transparent border-2 border-[#64FFDA] text-[#64FFDA] hover:bg-[#64FFDA]/10 px-6 py-3 text-base font-medium rounded-md transition-all duration-300"
+                className="bg-transparent border-2 border-[#00D4FF] text-[#00D4FF] hover:bg-[#00D4FF]/10 px-6 py-3 text-base font-medium rounded-md transition-all duration-300"
               >
                 <FolderOpen className="mr-2" size={18} />
                 View Projects
               </Button>
               <Button
                 asChild
-                className="bg-[#64FFDA] text-[#0A192F] hover:bg-[#64FFDA]/90 px-6 py-3 text-base font-medium rounded-md transition-all duration-300"
+                className="bg-[#00D4FF] text-[#0C1929] hover:bg-[#00D4FF]/90 px-6 py-3 text-base font-medium rounded-md transition-all duration-300"
               >
                 <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2" size={18} />
@@ -111,11 +111,11 @@ const Hero = () => {
           <div className="relative">
             <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72">
               {/* Decorative border */}
-              <div className="absolute -inset-2 rounded-full border-2 border-[#64FFDA]/30 animate-pulse" />
-              <div className="absolute -inset-4 rounded-full border border-[#64FFDA]/10" />
+              <div className="absolute -inset-2 rounded-full border-2 border-[#00D4FF]/30 animate-pulse" />
+              <div className="absolute -inset-4 rounded-full border border-[#00D4FF]/10" />
               
               {/* Image */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#64FFDA]/50 glow">
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#00D4FF]/50 glow">
                 <img
                   src={personalInfo.headshot}
                   alt={personalInfo.name}
@@ -131,12 +131,12 @@ const Hero = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-4 border border-[#233554] rounded-lg bg-[#112240]/50 hover:border-[#64FFDA]/30 transition-colors"
+              className="text-center p-4 border border-[#1E3A5F] rounded-lg bg-[#132F4C]/50 hover:border-[#00D4FF]/30 transition-colors"
             >
-              <p className="text-2xl md:text-3xl font-bold text-[#64FFDA] mb-1">
+              <p className="text-2xl md:text-3xl font-bold text-[#00D4FF] mb-1">
                 {stat.value}
               </p>
-              <p className="text-xs md:text-sm text-[#B8C5D9]">
+              <p className="text-xs md:text-sm text-[#B4D4F7]">
                 {stat.label}
               </p>
             </div>
@@ -147,7 +147,7 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <button
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#64FFDA] animate-bounce cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#00D4FF] animate-bounce cursor-pointer"
         aria-label="Scroll to next section"
       >
         <ChevronDown size={32} />
