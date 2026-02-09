@@ -206,6 +206,13 @@ const Contact = () => {
                   Thanks for reaching out! I'll respond within 24-48 hours.
                 </p>
               )}
+
+              {submitError && (
+                <div className="flex items-center gap-2 text-red-400 text-sm justify-center">
+                  <AlertCircle size={16} />
+                  <p>{submitError}</p>
+                </div>
+              )}
             </form>
           </div>
 
