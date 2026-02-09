@@ -17,7 +17,7 @@ const Footer = () => {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={22} />
@@ -26,14 +26,14 @@ const Footer = () => {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
               aria-label="GitHub"
             >
               <Github size={22} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+              className="text-[#B8C5D9] hover:text-[#64FFDA] transition-colors"
               aria-label="Email"
             >
               <Mail size={22} />
@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors text-sm"
+            className="flex items-center space-x-2 text-[#B8C5D9] hover:text-[#64FFDA] transition-colors text-sm"
           >
             <ArrowUp size={16} />
             <span>Back to Top</span>
@@ -51,10 +51,10 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center space-y-2">
-            <p className="font-mono text-[#8892B0] text-xs">
+            <p className="font-mono text-[#B8C5D9] text-xs">
               Built with React & Tailwind CSS
             </p>
-            <p className="text-[#495670] text-sm">
+            <p className="text-[#8892B0] text-sm">
               © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
             </p>
           </div>
