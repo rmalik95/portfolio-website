@@ -39,14 +39,14 @@ const ProjectCard = ({ project }) => {
       <p className="text-[#64FFDA] text-xs font-mono mb-3">
         {project.type} • {project.company}
       </p>
-      <p className="text-[#8892B0] text-sm mb-4 line-clamp-3">
+      <p className="text-[#B8C5D9] text-sm mb-4 line-clamp-3">
         {project.description}
       </p>
 
       {/* Impact */}
       <div className="space-y-2 mb-4">
         {project.impact.slice(0, 2).map((item, index) => (
-          <div key={index} className="flex items-start gap-2 text-[#8892B0] text-xs">
+          <div key={index} className="flex items-start gap-2 text-[#B8C5D9] text-xs">
             <span className="text-[#64FFDA] mt-0.5">▹</span>
             <span>{item}</span>
           </div>
@@ -58,13 +58,13 @@ const ProjectCard = ({ project }) => {
         {project.technologies.slice(0, 4).map((tech, index) => (
           <span
             key={index}
-            className="text-xs font-mono text-[#8892B0]"
+            className="text-xs font-mono text-[#B8C5D9]"
           >
             {tech}{index < Math.min(project.technologies.length, 4) - 1 && ' •'}
           </span>
         ))}
         {project.technologies.length > 4 && (
-          <span className="text-xs font-mono text-[#8892B0]">+{project.technologies.length - 4}</span>
+          <span className="text-xs font-mono text-[#B8C5D9]">+{project.technologies.length - 4}</span>
         )}
       </div>
 
@@ -95,7 +95,7 @@ const Projects = () => {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap items-center gap-3 mb-10">
-          <Filter size={16} className="text-[#8892B0]" />
+          <Filter size={16} className="text-[#B8C5D9]" />
           {categories.map((category) => (
             <Button
               key={category.id}
@@ -104,7 +104,7 @@ const Projects = () => {
               className={`px-4 py-2 text-sm rounded-full transition-all ${
                 activeFilter === category.id
                   ? 'bg-[#64FFDA]/10 text-[#64FFDA] border border-[#64FFDA]'
-                  : 'text-[#8892B0] border border-[#233554] hover:border-[#64FFDA]/50 hover:text-[#CCD6F6]'
+                  : 'text-[#B8C5D9] border border-[#233554] hover:border-[#64FFDA]/50 hover:text-[#CCD6F6]'
               }`}
             >
               {category.label}
