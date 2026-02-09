@@ -63,19 +63,19 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#64FFDA] ${
+                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#64FFDA] inline-flex items-center gap-1 ${
                   activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#B8C5D9]'
                 }`}
               >
-                <span className="font-mono text-[#64FFDA] text-xs mr-1">
+                <span className="font-mono text-[#64FFDA] text-xs">
                   0{index + 1}.
                 </span>
-                <span className="ml-1">{item.label}</span>
+                <span>{item.label}</span>
                 {activeSection === item.id && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#64FFDA]" />
                 )}
