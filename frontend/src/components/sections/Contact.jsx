@@ -223,7 +223,7 @@ const Contact = () => {
 
               {/* Divider */}
               <div className="border-t border-[#233554] pt-6">
-                <p className="text-[#8892B0] text-sm mb-4">Connect with me</p>
+                <p className="text-[#B8C5D9] text-sm mb-4">Connect with me</p>
                 <div className="flex gap-4">
                   <a
                     href={personalInfo.linkedin}
@@ -231,7 +231,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-10 h-10 flex items-center justify-center bg-[#0A192F] rounded-lg border border-[#233554] hover:border-[#64FFDA] transition-colors group"
                   >
-                    <Linkedin size={18} className="text-[#8892B0] group-hover:text-[#64FFDA]" />
+                    <Linkedin size={18} className="text-[#B8C5D9] group-hover:text-[#64FFDA]" />
                   </a>
                   <a
                     href={personalInfo.github}
@@ -239,7 +239,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="w-10 h-10 flex items-center justify-center bg-[#0A192F] rounded-lg border border-[#233554] hover:border-[#64FFDA] transition-colors group"
                   >
-                    <Github size={18} className="text-[#8892B0] group-hover:text-[#64FFDA]" />
+                    <Github size={18} className="text-[#B8C5D9] group-hover:text-[#64FFDA]" />
                   </a>
                 </div>
               </div>
@@ -251,7 +251,7 @@ const Contact = () => {
                 <div className="w-2 h-2 bg-[#64FFDA] rounded-full animate-pulse" />
                 <p className="text-[#64FFDA] text-sm font-medium">Open to Opportunities</p>
               </div>
-              <p className="text-[#8892B0] text-xs mt-2">
+              <p className="text-[#B8C5D9] text-xs mt-2">
                 Currently exploring roles in Data Science, ML Engineering, and Cloud Architecture.
               </p>
             </div>
