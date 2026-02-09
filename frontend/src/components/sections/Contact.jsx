@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Send, Mail, MapPin, Linkedin, Github, Loader2, CheckCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Linkedin, Github, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { personalInfo, contactSubjects } from '../../data/mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +19,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -40,20 +45,33 @@ const Contact = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    // Simulate form submission (mock)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-
-    // Reset success state after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setSubmitError('');
+    
+    try {
+      await axios.post(`${API}/contact`, formData);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reset success state after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setSubmitError(
+        error.response?.data?.detail || 
+        'Something went wrong. Please try again or email me directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
+    }
+    if (submitError) {
+      setSubmitError('');
     }
   };
 
