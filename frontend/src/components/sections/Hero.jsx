@@ -76,10 +76,10 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#CCD6F6] mb-4">
               {personalInfo.name}
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#8892B0] mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#A8B2D1] mb-6">
               {personalInfo.title}
             </h2>
-            <p className="text-[#8892B0] text-base md:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <p className="text-[#B8C5D9] text-base md:text-lg max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
               {personalInfo.tagline}
             </p>
 
@@ -133,7 +133,7 @@ const Hero = () => {
               <p className="text-2xl md:text-3xl font-bold text-[#64FFDA] mb-1">
                 {stat.value}
               </p>
-              <p className="text-xs md:text-sm text-[#8892B0]">
+              <p className="text-xs md:text-sm text-[#B8C5D9]">
                 {stat.label}
               </p>
             </div>
