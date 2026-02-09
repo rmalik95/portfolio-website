@@ -72,10 +72,10 @@ const Navigation = () => {
                   activeSection === item.id ? 'text-[#64FFDA]' : 'text-[#8892B0]'
                 }`}
               >
-                <span className="font-mono text-[#64FFDA] text-xs mr-1">
+                <span className="font-mono text-[#64FFDA] text-xs mr-2">
                   0{index + 1}.
                 </span>
-                {item.label}
+                <span>{item.label}</span>
                 {activeSection === item.id && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#64FFDA]" />
                 )}
@@ -122,7 +122,7 @@ const Navigation = () => {
                 <span className="font-mono text-[#64FFDA] text-sm mr-2">
                   0{index + 1}.
                 </span>
-                {item.label}
+                <span>{item.label}</span>
               </button>
             ))}
             <a
