@@ -42,7 +42,7 @@ export const experiences = [
   {
     id: 1,
     company: "London North Eastern Railway (LNER)",
-    logo: "🚆",
+    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/xatxuk58_lner.png",
     roles: [
       {
         title: "Data Scientist",
@@ -75,8 +75,29 @@ export const experiences = [
   },
   {
     id: 2,
+    company: "Teleperformance (DWP)",
+    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/53jbutaq_images.png",
+    roles: [
+      {
+        title: "Data Analyst",
+        period: "January 2024 - October 2024",
+        location: "Newcastle, UK",
+        current: false,
+        achievements: [
+          "Conducted comprehensive fraud and error analysis within Universal Credit Claim Review (UCR) teams, supporting the Department for Work and Pensions' compliance initiatives",
+          "Developed and maintained data visualizations to identify patterns and anomalies in UC claims related to identity verification, earnings declarations, and housing cost assessments",
+          "Collaborated with cross-functional investigation teams to provide data-driven insights that informed evidence-based decision making on claim reviews",
+          "Streamlined data reporting processes through automated dashboard creation, reducing manual analysis time by 40%",
+          "Presented analytical findings to senior stakeholders, contributing to enhanced fraud detection methodologies"
+        ],
+        technologies: ["Power BI", "Excel", "SQL", "Data Visualization", "Statistical Analysis", "Fraud Analytics"]
+      }
+    ]
+  },
+  {
+    id: 3,
     company: "DXC Technology",
-    logo: "💼",
+    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/s637pkim_dxc.png",
     roles: [
       {
         title: "Professional - Information Security",
