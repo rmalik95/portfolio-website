@@ -8,17 +8,17 @@ const ExperienceCard = ({ experience }) => {
   return (
     <div className="relative">
       {/* Company Header */}
-      <div className="flex items-start gap-4 mb-6">
+      <div className="flex items-start gap-4 mb-8">
         <div className="w-12 h-12 flex items-center justify-center bg-[#112240] rounded-lg border border-[#233554] text-2xl">
           {experience.logo}
         </div>
-        <div>
+        <div className="pt-2">
           <h3 className="text-xl font-semibold text-[#CCD6F6]">{experience.company}</h3>
         </div>
       </div>
 
       {/* Roles */}
-      <div className="space-y-4 ml-4 pl-8 border-l-2 border-[#233554]">
+      <div className="space-y-5 ml-4 pl-8 border-l-2 border-[#233554]">
         {experience.roles.map((role, roleIndex) => (
           <div
             key={roleIndex}
@@ -38,7 +38,7 @@ const ExperienceCard = ({ experience }) => {
             {/* Role Header */}
             <button
               onClick={() => setExpandedRole(expandedRole === roleIndex ? -1 : roleIndex)}
-              className="w-full p-4 md:p-6 text-left flex items-start justify-between gap-4"
+              className="w-full p-5 md:p-6 text-left flex items-start justify-between gap-4"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-2 flex-wrap">
@@ -49,7 +49,7 @@ const ExperienceCard = ({ experience }) => {
                     </span>
                   )}
                 </div>
-                <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-[#8892B0]">
+                <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-[#B8C5D9]">
                   <span className="flex items-center gap-1">
                     <Calendar size={14} className="text-[#64FFDA]" />
                     {role.period}
@@ -60,7 +60,7 @@ const ExperienceCard = ({ experience }) => {
                   </span>
                 </div>
               </div>
-              <span className="text-[#8892B0] mt-1">
+              <span className="text-[#B8C5D9] mt-1">
                 {expandedRole === roleIndex ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </span>
             </button>
@@ -71,10 +71,10 @@ const ExperienceCard = ({ experience }) => {
                 expandedRole === roleIndex ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-4 md:px-6 pb-4 md:pb-6 border-t border-[#233554]">
+              <div className="px-5 md:px-6 pb-5 md:pb-6 border-t border-[#233554]">
                 <ul className="mt-4 space-y-3">
                   {role.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-3 text-[#8892B0] text-sm">
+                    <li key={achIndex} className="flex items-start gap-3 text-[#B8C5D9] text-sm">
                       <span className="text-[#64FFDA] mt-1.5">▹</span>
                       <span>{achievement}</span>
                     </li>
@@ -82,7 +82,7 @@ const ExperienceCard = ({ experience }) => {
                 </ul>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mt-4">
+                <div className="flex flex-wrap gap-2 mt-5">
                   {role.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
