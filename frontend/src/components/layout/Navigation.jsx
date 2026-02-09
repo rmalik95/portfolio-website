@@ -129,7 +129,7 @@ const Navigation = () => {
               </button>
             ))}
             <a
-              href="/resume.pdf"
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-8 py-3 text-[#64FFDA] border border-[#64FFDA] rounded hover:bg-[#64FFDA]/10 transition-colors"
