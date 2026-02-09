@@ -9,8 +9,12 @@ const ExperienceCard = ({ experience }) => {
     <div className="relative">
       {/* Company Header */}
       <div className="flex items-center gap-4 mb-6">
-        <div className="w-14 h-14 flex items-center justify-center bg-[#112240] rounded-lg border border-[#233554] text-2xl flex-shrink-0">
-          {experience.logo}
+        <div className="w-14 h-14 flex items-center justify-center bg-white rounded-lg border border-[#233554] overflow-hidden flex-shrink-0 p-2">
+          <img 
+            src={experience.logo} 
+            alt={`${experience.company} logo`}
+            className="w-full h-full object-contain"
+          />
         </div>
         <h3 className="text-xl font-semibold text-[#CCD6F6]">{experience.company}</h3>
       </div>
