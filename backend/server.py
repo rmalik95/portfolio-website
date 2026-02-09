@@ -1,14 +1,17 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, UploadFile, File, HTTPException, Request
+from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+import base64
+import io
 
 
 ROOT_DIR = Path(__file__).parent
@@ -36,6 +39,45 @@ class StatusCheck(BaseModel):
 
 class StatusCheckCreate(BaseModel):
     client_name: str
+
+
+# Contact Form Models
+class ContactCreate(BaseModel):
+    name: str = Field(..., min_length=2, max_length=100)
+    email: EmailStr
+    subject: str = Field(..., min_length=1, max_length=200)
+    message: str = Field(..., min_length=20, max_length=1000)
+
+class ContactResponse(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str
+    name: str
+    email: str
+    subject: str
+    message: str
+    created_at: datetime
+    status: str = "pending"
+
+# Resume Models
+class ResumeResponse(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str
+    filename: str
+    original_filename: str
+    file_size: int
+    content_type: str
+    uploaded_at: datetime
+    is_active: bool = True
+
+class ResumeMetadata(BaseModel):
+    id: str
+    filename: str
+    original_filename: str
+    file_size: int
+    uploaded_at: datetime
+    download_url: str
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
