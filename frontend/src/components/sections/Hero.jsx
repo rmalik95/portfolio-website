@@ -99,7 +99,7 @@ const Hero = () => {
                 asChild
                 className="bg-[#64FFDA] text-[#0A192F] hover:bg-[#64FFDA]/90 px-6 py-3 text-base font-medium rounded-md transition-all duration-300"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2" size={18} />
                   Download Resume
                 </a>
