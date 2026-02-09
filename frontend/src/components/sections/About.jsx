@@ -18,17 +18,17 @@ const About = () => {
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-6">
-            <p className="text-[#8892B0] text-base md:text-lg leading-relaxed">
+            <p className="text-[#B8C5D9] text-base md:text-lg leading-relaxed">
               {aboutContent.intro}
             </p>
 
             {/* Location Badge */}
-            <div className="flex items-center text-[#8892B0] text-sm">
+            <div className="flex items-center text-[#B8C5D9] text-sm">
               <MapPin size={16} className="text-[#64FFDA] mr-2" />
               <span>{personalInfo.location}</span>
             </div>
 
-            <p className="text-[#8892B0] text-base md:text-lg leading-relaxed">
+            <p className="text-[#B8C5D9] text-base md:text-lg leading-relaxed">
               {aboutContent.drives}
             </p>
 
@@ -38,14 +38,14 @@ const About = () => {
                 <Briefcase className="text-[#64FFDA] mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="text-[#CCD6F6] font-medium">Current Role</p>
-                  <p className="text-[#8892B0] text-sm">Data Scientist at LNER</p>
+                  <p className="text-[#B8C5D9] text-sm">Data Scientist at LNER</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3 p-4 bg-[#112240] rounded-lg border border-[#233554]">
                 <Award className="text-[#64FFDA] mt-1 flex-shrink-0" size={20} />
                 <div>
                   <p className="text-[#CCD6F6] font-medium">Achievement</p>
-                  <p className="text-[#8892B0] text-sm">2nd Place Hackathon Winner</p>
+                  <p className="text-[#B8C5D9] text-sm">2nd Place Hackathon Winner</p>
                 </div>
               </div>
             </div>
@@ -67,12 +67,12 @@ const About = () => {
                     <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[#0A192F] border-2 border-[#64FFDA]" />
                     <h4 className="text-[#CCD6F6] font-medium">{edu.degree}</h4>
                     <p className="text-[#64FFDA] text-sm font-mono">{edu.institution}</p>
-                    <p className="text-[#8892B0] text-xs mt-1">{edu.period}</p>
+                    <p className="text-[#B8C5D9] text-xs mt-1">{edu.period}</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       {edu.highlights.map((highlight, idx) => (
                         <span
                           key={idx}
-                          className="text-xs px-2 py-1 bg-[#0A192F] text-[#8892B0] rounded border border-[#233554]"
+                          className="text-xs px-2 py-1 bg-[#0A192F] text-[#B8C5D9] rounded border border-[#233554]"
                         >
                           {highlight}
                         </span>
