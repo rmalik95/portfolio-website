@@ -6,9 +6,15 @@ import { Textarea } from '../ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { personalInfo, contactSubjects } from '../../data/mock';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +54,28 @@ const Contact = () => {
     setSubmitError('');
     
     try {
-      await axios.post(`${API}/contact`, formData);
+      // Send email via EmailJS
+      const emailParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        emailParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      // Also store in database for backup
+      try {
+        await axios.post(`${API}/contact`, formData);
+      } catch (dbError) {
+        console.log('Database backup failed, but email sent successfully');
+      }
+
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       
@@ -57,8 +84,7 @@ const Contact = () => {
     } catch (error) {
       console.error('Contact form submission error:', error);
       setSubmitError(
-        error.response?.data?.detail || 
-        'Something went wrong. Please try again or email me directly.'
+        'Something went wrong. Please try again or email me directly at ' + personalInfo.email
       );
     } finally {
       setIsSubmitting(false);
