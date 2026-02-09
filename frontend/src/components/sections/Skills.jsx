@@ -1,71 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { skills } from '../../data/mock';
 
-const SkillBar = ({ name, level, inView }) => {
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (inView) {
-      const timer = setTimeout(() => setWidth(level), 100);
-      return () => clearTimeout(timer);
-    }
-  }, [inView, level]);
-
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <span className="text-[#8892B0] text-sm">{name}</span>
-        <span className="text-[#64FFDA] text-xs font-mono">{level}%</span>
-      </div>
-      <div className="h-2 bg-[#0A192F] rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-[#64FFDA] to-[#64FFDA]/70 rounded-full transition-all duration-1000 ease-out"
-          style={{ width: `${width}%` }}
-        />
-      </div>
-    </div>
-  );
-};
-
 const SkillCategory = ({ category, icon, items }) => {
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div
-      ref={ref}
-      className="bg-[#112240] rounded-lg p-6 border border-[#233554] hover:border-[#64FFDA]/30 transition-colors"
-    >
-      <div className="flex items-center gap-3 mb-6">
+    <div className="bg-[#112240] rounded-lg p-6 border border-[#233554] hover:border-[#64FFDA]/30 transition-colors">
+      <div className="flex items-center gap-3 mb-5">
         <span className="text-2xl">{icon}</span>
         <h3 className="text-[#CCD6F6] font-semibold">{category}</h3>
       </div>
-      <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
         {items.map((skill, index) => (
-          <SkillBar
+          <span
             key={index}
-            name={skill.name}
-            level={skill.level}
-            inView={inView}
-          />
+            className="px-3 py-1.5 text-sm bg-[#0A192F] text-[#B8C5D9] rounded-md border border-[#233554] hover:border-[#64FFDA]/50 hover:text-[#64FFDA] transition-colors"
+          >
+            {skill.name}
+          </span>
         ))}
       </div>
     </div>
@@ -99,13 +49,13 @@ const Skills = () => {
 
         {/* Additional Skills Tags */}
         <div className="mt-12 text-center">
-          <p className="text-[#8892B0] text-sm mb-4">Other Technologies & Tools</p>
+          <p className="text-[#B8C5D9] text-sm mb-4">Other Technologies & Tools</p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Agile/Scrum', 'JIRA', 'Confluence', 'Salesforce', 'Data Storytelling', 'Technical Documentation'].map(
               (skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1.5 text-sm bg-[#0A192F] text-[#8892B0] rounded-full border border-[#233554] hover:border-[#64FFDA]/30 hover:text-[#CCD6F6] transition-colors"
+                  className="px-3 py-1.5 text-sm bg-[#0A192F] text-[#B8C5D9] rounded-full border border-[#233554] hover:border-[#64FFDA]/30 hover:text-[#CCD6F6] transition-colors"
                 >
                   {skill}
                 </span>
