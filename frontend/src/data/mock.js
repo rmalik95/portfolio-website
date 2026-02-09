@@ -115,9 +115,9 @@ export const experiences = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     company: "Capgemini Technology Services",
-    logo: "🏢",
+    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/grjc5iz3_CAP.PA-9b4110b0.png",
     roles: [
       {
         title: "Associate Consultant → Senior Software Engineer → Software Engineer",
