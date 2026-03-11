@@ -2,22 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+}
+
+h1 {
+  font-weight: 700;
 }
 
 code, .font-mono {
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  letter-spacing: 0;
 }
 
 /* Smooth scroll behavior */
@@ -25,52 +34,89 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Light Mode */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #132F4C;
+  background: hsl(150 8% 92%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00D4FF;
+  background: hsl(160 45% 32%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #66B2FF;
+  background: hsl(160 50% 38%);
+}
+
+/* Custom scrollbar - Dark Mode */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(160 8% 13%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(155 50% 45%);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(155 55% 45%);
 }
 
 @layer base {
   :root {
-    --deep-sea: 208 52% 11%;
-    --navy: 209 57% 19%;
-    --ice-blue: 207 82% 83%;
-    --sky: 207 100% 70%;
-    --cyan: 190 100% 50%;
-
-    --background: 208 52% 11%;
-    --foreground: 207 82% 83%;
-    --card: 209 57% 19%;
-    --card-foreground: 207 82% 83%;
-    --popover: 209 57% 19%;
-    --popover-foreground: 207 82% 83%;
-    --primary: 190 100% 50%;
-    --primary-foreground: 208 52% 11%;
-    --secondary: 209 57% 19%;
-    --secondary-foreground: 207 82% 83%;
-    --muted: 209 40% 25%;
-    --muted-foreground: 207 100% 70%;
-    --accent: 190 100% 50%;
-    --accent-foreground: 208 52% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 209 40% 30%;
-    --input: 209 40% 30%;
-    --ring: 190 100% 50%;
+    /* Light Mode - Nature-Inspired Theme */
+    --background: 60 10% 97%;
+    --foreground: 150 10% 12%;
+    --primary: 160 45% 32%;
+    --primary-foreground: 60 10% 97%;
+    --secondary: 150 8% 92%;
+    --secondary-foreground: 150 10% 12%;
+    --muted: 150 8% 92%;
+    --muted-foreground: 150 6% 45%;
+    --accent: 150 8% 92%;
+    --accent-foreground: 150 10% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 60 10% 97%;
+    --border: 150 8% 87%;
+    --input: 150 8% 87%;
+    --ring: 160 45% 32%;
+    --success: 160 50% 38%;
+    --warning: 38 80% 50%;
+    --surface: 150 8% 95%;
+    --card: 150 8% 95%;
+    --card-foreground: 150 10% 12%;
+    --popover: 60 10% 97%;
+    --popover-foreground: 150 10% 12%;
     --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode - Deep Forest Theme */
+    --background: 160 15% 5%;
+    --foreground: 150 10% 90%;
+    --primary: 155 50% 45%;
+    --primary-foreground: 160 15% 5%;
+    --secondary: 160 8% 13%;
+    --secondary-foreground: 150 10% 90%;
+    --muted: 160 8% 13%;
+    --muted-foreground: 150 6% 50%;
+    --accent: 160 8% 13%;
+    --accent-foreground: 150 10% 90%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 150 10% 90%;
+    --border: 160 6% 16%;
+    --input: 160 6% 16%;
+    --ring: 155 50% 45%;
+    --success: 155 55% 45%;
+    --warning: 38 80% 50%;
+    --surface: 160 12% 8%;
+    --card: 160 12% 8%;
+    --card-foreground: 150 10% 90%;
+    --popover: 160 15% 5%;
+    --popover-foreground: 150 10% 90%;
   }
 }
 
@@ -79,11 +125,21 @@ html {
     @apply border-border;
   }
   body {
-    @apply bg-[#0C1929] text-[#B4D4F7];
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }
 
-/* Particle animation styles - ocean theme */
+/* Card hover effects */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px hsl(var(--primary) / 0.15);
+}
+
+/* Particle animation styles */
 .particle-container {
   position: absolute;
   inset: 0;
@@ -94,7 +150,7 @@ html {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: #00D4FF;
+  background: hsl(var(--primary));
   border-radius: 50%;
   opacity: 0.3;
   animation: float 15s infinite ease-in-out;
@@ -103,35 +159,12 @@ html {
 @keyframes float {
   0%, 100% {
     transform: translateY(0) translateX(0);
+  
+  .particle {
+    animation: none;
   }
-  25% {
-    transform: translateY(-30px) translateX(20px);
-  }
-  50% {
-    transform: translateY(-10px) translateX(-20px);
-  }
-  75% {
     transform: translateY(-40px) translateX(10px);
   }
-}
-
-/* Glow effect - ocean */
-.glow {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-}
-
-.glow-text {
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-}
-
-/* Card hover effects */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
 }
 
 /* Focus styles for accessibility */
@@ -140,7 +173,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #00D4FF;
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
 
@@ -154,13 +187,8 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
-  .particle {
-    animation: none;
-  }
 }
 
-/* Ocean decorative elements */
 .ocean-gradient {
   background: linear-gradient(135deg, #0C1929 0%, #132F4C 100%);
 }

@@ -1,0 +1,38 @@
+# Backend - Uploads Directory
+uploads/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Old server files (deprecated)
+server.py
+server_secure.py
+security_middleware.py
+security_utils.py
+requirements.txt

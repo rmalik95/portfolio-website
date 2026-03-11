@@ -7,6 +7,29 @@ module.exports = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  			mono: ['Fira Code', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
+  		},
+  		fontSize: {
+  			base: ['16px', { lineHeight: '1.6', letterSpacing: '-0.011em' }],
+  			lg: ['18px', { lineHeight: '1.6', letterSpacing: '-0.014em' }],
+  			xl: ['20px', { lineHeight: '1.5', letterSpacing: '-0.017em' }],
+  			'2xl': ['24px', { lineHeight: '1.4', letterSpacing: '-0.019em' }],
+  			'3xl': ['30px', { lineHeight: '1.3', letterSpacing: '-0.021em' }],
+  			'4xl': ['36px', { lineHeight: '1.2', letterSpacing: '-0.022em' }],
+  			'5xl': ['48px', { lineHeight: '1.1', letterSpacing: '-0.024em' }],
+  			'6xl': ['60px', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
+  		},
+  		letterSpacing: {
+  			tighter: '-0.022em',
+  			tight: '-0.014em',
+  			normal: '-0.011em',
+  		},
+  		lineHeight: {
+  			relaxed: '1.75',
+  			loose: '2',
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -43,6 +66,9 @@ module.exports = {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+  			success: 'hsl(var(--success))',
+  			warning: 'hsl(var(--warning))',
+  			surface: 'hsl(var(--surface))',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

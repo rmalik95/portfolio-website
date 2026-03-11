@@ -121,6 +121,9 @@ ehthumbs.db
 Thumbs.db
 desktop.ini
 
+# Git config files (may contain user info)
+.gitconfig
+
 # ============================================
 # Build artifacts
 # ============================================

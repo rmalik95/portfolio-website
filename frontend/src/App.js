@@ -15,7 +15,7 @@ import Contact from "./components/sections/Contact";
 
 function App() {
   return (
-    <div className="App min-h-screen bg-[#0C1929]">
+    <div className="App min-h-screen bg-background">
       <Navigation />
       <main>
         <Hero />

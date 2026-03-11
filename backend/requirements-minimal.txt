@@ -1,0 +1,15 @@
+# Minimal Backend Requirements
+# Only for resume download functionality
+
+# Core FastAPI
+fastapi==0.110.1
+uvicorn==0.25.0
+
+# Environment variables
+python-dotenv>=1.0.1
+
+# Data validation
+pydantic>=2.6.4
+
+# File handling (included with FastAPI)
+python-multipart>=0.0.9

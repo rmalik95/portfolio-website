@@ -8,8 +8,9 @@ import { personalInfo, contactSubjects } from '../../data/mock';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
 const API = `${BACKEND_URL}/api`;
+const HAS_BACKEND = !!process.env.REACT_APP_BACKEND_URL;
 
 // EmailJS Configuration
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
@@ -94,7 +95,9 @@ const Contact = () => {
     // Security Check 1: Honeypot detection
     // If the honeypot field (website) is filled, it's likely a bot
     if (formData.website && formData.website.trim().length > 0) {
-      console.warn('Bot detected via honeypot');
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Bot detected via honeypot');
+      }
       // Silently "succeed" to not reveal the honeypot
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '', website: '' });
@@ -109,7 +112,9 @@ const Contact = () => {
     const minSubmitTime = 3000; // 3 seconds
 
     if (timeTaken < minSubmitTime) {
-      console.warn('Form submitted too quickly, possible bot');
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Form submitted too quickly, possible bot');
+      }
       setSubmitError('Please take your time filling out the form.');
       return;
     }
@@ -117,7 +122,9 @@ const Contact = () => {
     // Security Check 3: User interaction check
     // Basic check to ensure user actually interacted with the form
     if (!hasInteracted) {
-      console.warn('No interaction detected');
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('No interaction detected');
+      }
       setSubmitError('Please fill out the form completely.');
       return;
     }
@@ -153,20 +160,25 @@ const Contact = () => {
         EMAILJS_PUBLIC_KEY
       );
 
-      // Also store in database for backup
-      try {
-        await axios.post(
-          `${API}/contact`,
-          sanitizedData,
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            timeout: 10000, // 10 second timeout
+      // Also store in database for backup (if backend is configured)
+      if (HAS_BACKEND) {
+        try {
+          await axios.post(
+            `${API}/contact`,
+            sanitizedData,
+            {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              timeout: 10000, // 10 second timeout
+            }
+          );
+        } catch (dbError) {
+          // Database backup failed, but email sent successfully
+          if (process.env.NODE_ENV === 'development') {
+            console.log('Database backup failed, but email sent successfully');
           }
-        );
-      } catch (dbError) {
-        console.log('Database backup failed, but email sent successfully');
+        }
       }
 
       // Success
@@ -178,7 +190,9 @@ const Contact = () => {
       setTimeout(() => setIsSubmitted(false), 5000);
 
     } catch (error) {
-      console.error('Contact form submission error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Contact form submission error:', error);
+      }
 
       // User-friendly error messages
       if (error.response?.status === 429) {
@@ -220,7 +234,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="font-mono text-[#00D4FF] text-sm mb-2">05. What's Next?</p>
+          <p className="font-mono text-[#00D4FF] text-sm mb-2">06. What's Next?</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#B4D4F7] mb-4">
             Let's Build Something Together
           </h2>

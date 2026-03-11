@@ -7,8 +7,8 @@ export const personalInfo = {
   email: "rishabhm4646@gmail.com",
   location: "Newcastle upon Tyne, United Kingdom",
   linkedin: "https://linkedin.com/in/rishabh-malik-156481aa",
-  github: "https://github.com/rishabhmalik",
-  headshot: "https://customer-assets.emergentagent.com/job_ebcf7c28-4d6d-49ec-86ac-2bf13e54f7d3/artifacts/7r5tl0l1_IMG_6117%20Large.jpeg"
+  github: "https://github.com/rmalik95",
+  headshot: "/images/headshot.jpg"
 };
 
 export const stats = [
@@ -42,7 +42,7 @@ export const experiences = [
   {
     id: 1,
     company: "London North Eastern Railway (LNER)",
-    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/xatxuk58_lner.png",
+    logo: "/images/lner-logo.png",
     roles: [
       {
         title: "Data Scientist",
@@ -76,7 +76,7 @@ export const experiences = [
   {
     id: 2,
     company: "Teleperformance (DWP)",
-    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/53jbutaq_images.png",
+    logo: "/images/teleperformance-logo.png",
     roles: [
       {
         title: "Data Analyst",
@@ -97,7 +97,7 @@ export const experiences = [
   {
     id: 3,
     company: "DXC Technology",
-    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/s637pkim_dxc.png",
+    logo: "/images/dxc-logo.png",
     roles: [
       {
         title: "Professional - Information Security",
@@ -117,7 +117,7 @@ export const experiences = [
   {
     id: 4,
     company: "Capgemini Technology Services",
-    logo: "https://customer-assets.emergentagent.com/job_portfolio-creator-44/artifacts/grjc5iz3_CAP.PA-9b4110b0.png",
+    logo: "/images/capgemini-logo.png",
     roles: [
       {
         title: "Associate Consultant → Senior Software Engineer → Software Engineer",

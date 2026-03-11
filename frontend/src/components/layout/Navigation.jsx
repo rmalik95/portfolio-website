@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from '../ui/theme-toggle';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const RESUME_URL = `${BACKEND_URL}/api/resume/download`;
@@ -52,18 +53,21 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0C1929]/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md border-b border-border' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Name */}
-          <button
-            onClick={() => scrollToSection('home')}
-            className="font-display text-[#00D4FF] text-xl md:text-2xl font-semibold hover:opacity-80 transition-opacity"
-          >
-            RM
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scrollToSection('home')}
+              className="font-display text-primary text-xl md:text-2xl font-semibold hover:opacity-80 transition-opacity"
+            >
+              RM
+            </button>
+            <ThemeToggle />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -71,16 +75,16 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 text-sm font-medium transition-colors hover:text-[#00D4FF] inline-flex items-center gap-1 ${
-                  activeSection === item.id ? 'text-[#00D4FF]' : 'text-[#66B2FF]'
+                className={`relative py-2 text-sm font-medium transition-colors hover:text-primary inline-flex items-center gap-1 ${
+                  activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
-                <span className="text-[#00D4FF] text-xs font-mono">
+                <span className="text-primary text-xs font-mono">
                   0{index + 1}.
                 </span>
                 <span>{item.label}</span>
                 {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00D4FF]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
                 )}
               </button>
             ))}
@@ -88,7 +92,7 @@ const Navigation = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 text-sm font-medium text-[#0C1929] bg-[#00D4FF] rounded hover:bg-[#66B2FF] transition-colors"
+              className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded hover:opacity-90 transition-opacity"
             >
               Resume
             </a>
@@ -97,7 +101,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-[#00D4FF] hover:bg-[#132F4C] rounded-lg transition-colors"
+            className="md:hidden p-2 text-primary hover:bg-secondary rounded-lg transition-colors"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -111,18 +115,18 @@ const Navigation = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="absolute inset-0 bg-[#0C1929]/80 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
-        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-[#132F4C] shadow-2xl">
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
+        <div className="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-card shadow-2xl border-l border-border">
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
             {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-lg font-medium transition-colors hover:text-[#00D4FF] ${
-                  activeSection === item.id ? 'text-[#00D4FF]' : 'text-[#B4D4F7]'
+                className={`text-lg font-medium transition-colors hover:text-primary ${
+                  activeSection === item.id ? 'text-primary' : 'text-foreground'
                 }`}
               >
-                <span className="font-mono text-[#00D4FF] text-sm mr-2">
+                <span className="font-mono text-primary text-sm mr-2">
                   0{index + 1}.
                 </span>
                 {item.label}
@@ -132,7 +136,7 @@ const Navigation = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-8 py-3 text-[#0C1929] bg-[#00D4FF] rounded hover:bg-[#66B2FF] transition-colors"
+              className="mt-4 px-8 py-3 text-primary-foreground bg-primary rounded hover:opacity-90 transition-opacity"
             >
               Resume
             </a>
